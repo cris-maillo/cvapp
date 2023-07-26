@@ -1,15 +1,16 @@
 // import { useState } from 'react'
 import './App.css'
 
-import Section from './components/Section'
+import Builder from './components/Builder'
+import CV from "./components/CV";
 
 function App() {
   return (
-    <>
-      <Section />
-      <Section />
-      <Section />
-    </>
+    <div className='App'>
+      <h1>CV Builder</h1>
+      <Builder className="Builder"/>
+      <CV className="CV"/>
+    </div>
   )
 }
 

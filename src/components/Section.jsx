@@ -1,12 +1,16 @@
 // import React from 'react';
+import PropTypes from 'prop-types';
 
-function Section() {
+function Section(props) {
     return (
       <div>
-          <h1>Section</h1>
-          <h1>Section</h1>
+          <h1>{props.title}</h1>
       </div>
     );
   }
+
+Section.propTypes = {
+    title: PropTypes.string.isRequired,
+};
   
-  export default Section;
+export default Section;
