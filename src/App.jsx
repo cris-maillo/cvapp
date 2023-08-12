@@ -8,8 +8,10 @@ function App() {
   return (
     <div className='App'>
       <h1>CV Builder</h1>
-      <Builder className="Builder"/>
-      <CV className="CV"/>
+      <div className='Content'>
+        <Builder className="Builder"/>
+        <CV className="CV"/>
+      </div>
     </div>
   )
 }

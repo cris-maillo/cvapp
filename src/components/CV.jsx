@@ -1,13 +1,17 @@
 // import React from 'react';
 // import PropTypes from 'prop-types';
 
-import Section from "./Section";
+import PDSection from "./PDSection";
+import EESection from "./EESection";
+import PESection from "./PESection";
 import './css/CV.css'
 
 function CV() {
     return (
       <div className="CV">
-        <Section title="Personal Information"/>
+        <PDSection title="Personal Information"/>
+        <EESection title="Educational Experience"/>
+        <PESection title="Professional Experience"/>
       </div>
     );
   }

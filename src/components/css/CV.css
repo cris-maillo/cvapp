@@ -1,5 +1,4 @@
 .CV{
-    /* display: flex;
-    flex-direction: column; */
-    background-color: red;
+    border: 2px solid white;
+    padding: 20px 40px;
 }

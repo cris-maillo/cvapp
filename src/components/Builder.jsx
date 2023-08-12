@@ -1,18 +1,21 @@
 // import React from 'react';
 // import PropTypes from 'prop-types';
 
-import '../App.css'
 import './css/Builder.css'
-import Section from "./Section";
+import PDBuilder from "./PDBuilder";
+import EEBuilder from "./EEBuilder";
+import PEBuilder from "./PEBuilder";
 
 function Builder() {
     return (
       <div className='Builder'>
-          <Section title="Personal Details"/>
-          <Section title="Educational Experience"/>
-          <Section title="Professional Experience"/>
-          <button>Clear</button>
-          <button>Download</button>
+          <PDBuilder title="Personal Details"/>
+          <EEBuilder title="Educational Experience"/>
+          <PEBuilder title="Professional Experience"/>
+          <div className='builderButtons'>
+            <button>Clear</button>
+            <button>Download</button>
+          </div>
       </div>
     );
   }
