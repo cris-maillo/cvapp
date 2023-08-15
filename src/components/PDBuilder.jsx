@@ -5,12 +5,16 @@ import './css/Builder.css'
 function PDBuilder({title}) {
     return (
       <div className='CVBuilder'>
-          <h2>{title}</h2>
+          <h3>{title}</h3>
           <div className='inputs'>
             <input placeholder='Full Name'></input>
             <input placeholder='Phone Number' type='tel'></input>
             <input placeholder='Email' type='email'></input>
             <input placeholder='Location'></input>
+          </div>
+          <div className='builderButtons'>
+            <button>Clear</button>
+            <button>Add Experience</button>
           </div>
       </div>
     );

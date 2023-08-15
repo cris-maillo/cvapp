@@ -10,8 +10,8 @@ function CV() {
     return (
       <div className="CV">
         <PDSection title="Personal Information"/>
-        <EESection title="Educational Experience"/>
-        <PESection title="Professional Experience"/>
+        <EESection title="Education"/>
+        <PESection title="Experience"/>
       </div>
     );
   }

@@ -3,10 +3,17 @@
     padding: 20px 40px;
 }
 
+.Builder *{
+    /* border: 1px solid white; */
+    max-width: 420px;
+    text-align: center;
+}
+
 .builderButtons{
+    padding: 5px;
+    font-size: 14px;
     display: flex;
     justify-content: space-around;
-    padding-top: 30px;
 }
 
 .builderSection{
@@ -23,11 +30,11 @@
 
 textarea{
     font-family: arial;
+    width: 300px;
+    min-height: 100px;
+    margin: 0px;
 }
 
 .inputs > *, .inputs > * > *{
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* gap: 10px; */
-    margin: 5px;
+    margin: 0px 5px 5px 5px;
 }

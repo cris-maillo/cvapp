@@ -7,7 +7,7 @@ import CV from "./components/CV";
 function App() {
   return (
     <div className='App'>
-      <h1>CV Builder</h1>
+      <h2>CV Builder</h2>
       <div className='Content'>
         <Builder className="Builder"/>
         <CV className="CV"/>

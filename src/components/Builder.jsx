@@ -10,10 +10,10 @@ function Builder() {
     return (
       <div className='Builder'>
           <PDBuilder title="Personal Details"/>
-          <EEBuilder title="Educational Experience"/>
-          <PEBuilder title="Professional Experience"/>
+          <EEBuilder title="Education"/>
+          <PEBuilder title="Experience"/>
           <div className='builderButtons'>
-            <button>Clear</button>
+            <button>Clear All</button>
             <button>Download</button>
           </div>
       </div>
