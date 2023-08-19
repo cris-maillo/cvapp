@@ -4,10 +4,10 @@ import './css/Builder.css'
 import EEInputs from './EEInputs';
 
 function EEBuilder({title}) {
-  const [experienceCount, setExperienceCount] = useState(1); // Initialize with one experience
+  const [experienceCount, setExperienceCount] = useState(1);
 
   function newExperience() {
-    setExperienceCount(prevCount => prevCount + 1); // Increment experience count
+    setExperienceCount(prevCount => prevCount + 1);
   }
     return (
       <div className='CVBuilder'>

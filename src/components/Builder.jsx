@@ -12,7 +12,7 @@ function Builder() {
           <PDBuilder title="Personal Details"/>
           <EEBuilder title="Education"/>
           <PEBuilder title="Experience"/>
-          <div className='builderButtons'>
+          <div className='builderButtons main'>
             <button>Clear All</button>
             <button>Download</button>
           </div>
