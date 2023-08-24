@@ -1,13 +1,20 @@
-// import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './css/Builder.css'
 
-function PDBuilder({title}) {
+function PDBuilder({onInputChange}) {
+  const [inputValue, setInputValue] = useState('');
+  
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    onInputChange(e.target.value);
+  };
+
     return (
       <div className='CVBuilder'>
-          <h3>{title}</h3>
           <div className='inputs'>
-            <input placeholder='Full Name'></input>
+            <input placeholder='Full Name' value={inputValue} onChange={handleInputChange}></input>
             <input placeholder='Phone Number' type='tel'></input>
             <input placeholder='Email' type='email'></input>
             <input placeholder='Location'></input>
@@ -22,6 +29,7 @@ function PDBuilder({title}) {
 
 PDBuilder.propTypes = {
     title: PropTypes.string.isRequired,
+    onInputChange: PropTypes.func
 };
   
 export default PDBuilder;
