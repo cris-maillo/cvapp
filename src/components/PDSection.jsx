@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import './css/CVSection.css'
 // import PDBuilder from "./PDBuilder";
 
-function PDSection({name}) {
+function PDSection({name, phoneNumber, emailAddress, location}) {
 
     return (
       <div className='CVSection'>
         <h2>{name}</h2>
           <div className='contactDetails'>
-            <p>07869494911</p>
-            <p>cristinamaillo.r@gmail.com</p>
-            <p>London, UK</p>
+            <p>{phoneNumber}</p>
+            <p>{emailAddress}</p>
+            <p>{location}</p>
           </div>
       </div>
     );
@@ -19,6 +19,9 @@ function PDSection({name}) {
 
 PDSection.propTypes = {
     name: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    emailAddress: PropTypes.string,
+    location: PropTypes.string
 };
   
 export default PDSection;

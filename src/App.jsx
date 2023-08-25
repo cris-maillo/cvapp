@@ -10,10 +10,13 @@ import EESection from "./components/EESection";
 import PESection from "./components/PESection";
 
 function App() {
-  const [name, setName] = useState('');
+  const [details, setDetails] = useState(['Full Name', '999-999-999', 'email@address.com', 'City, Country'])
 
-  const handleInputChange = (inputValue) => {
-    setName(inputValue);
+  const handleDetailChange = (index, inputValue) => {
+    const updatedDetails = details.map((detail, i) =>
+      i === index ? inputValue : detail
+    );
+    setDetails(updatedDetails);
   };
 
   return (
@@ -21,7 +24,7 @@ function App() {
       <h2>CV Builder</h2>
       <div className='Content'>
         <div className='Builder'>
-            <PDBuilder title="Personal Details" onInputChange={handleInputChange}/>
+            <PDBuilder title="Personal Details" onInputChange={handleDetailChange}/>
             <EEBuilder title="Education"/>
             <PEBuilder title="Experience"/>
             <div className='builderButtons main'>
@@ -30,7 +33,7 @@ function App() {
             </div>
         </div>
         <div className="CV">
-          <PDSection title="Personal Information" name={name}/>
+          <PDSection title="Personal Information" name={details[0]} phoneNumber={details[1]} emailAddress={details[2]} location={details[3]}/>
           <EESection title="Education"/>
           <PESection title="Experience"/>
         </div>
