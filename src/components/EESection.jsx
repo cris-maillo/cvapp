@@ -1,19 +1,18 @@
-// import React from 'react';
 import PropTypes from 'prop-types';
 import './css/CVSection.css'
 
-function EESection({title}) {
+function EESection({title, date, diploma, school, location}) {
     return (
       <div className='CVSection'>
           <h2>{title}</h2>
           <div className='details'>
             <div>
-                <p>2013 - 2019</p>
-                <p>Title of Education</p>
+                <p>{date}</p>
+                <p>{diploma}</p>
             </div>
             <div>
-                <p>School Name</p>
-                <p>Location</p>
+                <p>{school}</p>
+                <p>{location}</p>
             </div>
           </div>
       </div>
@@ -22,6 +21,10 @@ function EESection({title}) {
 
 EESection.propTypes = {
     title: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    diploma: PropTypes.string,
+    school: PropTypes.string,
+    location: PropTypes.string
 };
   
 export default EESection;
