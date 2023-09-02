@@ -1,53 +1,110 @@
-import { useState } from 'react'
+import { useState } from 'react';
+
 import './App.css'
 import './components/css/Builder.css'
-import './components/css/CV.css';
+
+import DisplaySection from './components/DisplaySection';
 import PDBuilder from "./components/PDBuilder";
 import EEBuilder from "./components/EEBuilder";
 import PEBuilder from "./components/PEBuilder";
-import PDSection from "./components/PDSection";
-import EESection from "./components/EESection";
-import PESection from "./components/PESection";
 
 function App() {
-  const [details, setDetails] = useState(['Full Name', '999-999-999', 'email@address.com', 'City, Country'])
-  const [education, setEducation] = useState(['01/01/2023', 'MSc Computer Science', 'University', 'City, Country'])
+  const [data, setData] = useState({
+    name: "John Doe",
+    phoneNumber: "123-456-7890",
+    email: "johndoe@example.com",
+    location: "London, UK",
+    educationalDetails: [
+        {
+        date: "23/07/1999",
+        diploma: "Bachelor's Degree",
+        institution: "University A",
+        location: "City A",
+        },
+        {
+        date: "23/07/1999",
+        diploma: "Master's Degree",
+        institution: "University B",
+        location: "City B",
+        },
+    ],
+    professionalDetails: [
+        {
+        dates: "23/07/1999",
+        company: "Company X",
+        role: "Software Engineer",
+        location: "City X",
+        description: "Was very cool here and did very cool stuff lorem ipsum"
+        },
+        {
+        dates: "23/07/1999",
+        company: "Company Y",
+        role: "Product Manager",
+        location: "City Y",
+        description: "Was very cool here and did very cool stuff lorem ipsum"
+        },
+    ],
+  });
 
-  const handleDetailChange = (index, inputValue) => {
-    const updatedDetails = details.map((detail, i) =>
-      i === index ? inputValue : detail
-    );
-    setDetails(updatedDetails);
+  const handleChange = (propertyName, newValue) => {
+    setData((prevData) => ({
+      ...prevData,
+      [propertyName]: newValue,
+    }));
   };
 
-  const handleEducationChange = (index, inputValue) => {
-    const updatedEducation = education.map((education, i) =>
-      i === index ? inputValue : education
-    );
-    setEducation(updatedEducation);
+  const handleClear = (section) => {
+    switch (section) {
+      case 'personalDetails':
+        setData((prevData) => ({
+          ...prevData,
+          name: '',
+          phoneNumber: '',
+          email: '',
+          location: '',
+        }));
+        break;
+      case 'educationDetails':
+        setData((prevData) => ({
+          ...prevData,
+          name: '',
+          phoneNumber: '',
+          email: '',
+          location: '',
+        }));
+        break;
+      case 'professionalDetails':
+        setData((prevData) => ({
+          ...prevData,
+          name: '',
+          phoneNumber: '',
+          email: '',
+          location: '',
+        }));
+        break;
+  
+      default:
+        break;
+    }
   };
+  
 
   return (
-    <div className='App'>
-      <h2>CV Builder</h2>
-      <div className='Content'>
-        <div className='Builder'>
-            <PDBuilder title="Personal Details" onInputChange={handleDetailChange}/>
-            <EEBuilder title="Education" onInputChange={handleEducationChange}/>
-            <PEBuilder title="Experience"/>
-            <div className='builderButtons main'>
-              <button>Clear All</button>
-              <button>Download</button>
-            </div>
-        </div>
-        <div className="CV">
-          <PDSection title="Personal Information" name={details[0]} phoneNumber={details[1]} emailAddress={details[2]} location={details[3]}/>
-          <EESection title="Education" date={education[0]} diploma={education[1]} school={education[2]} location={education[3]}/>
-          <PESection title="Experience"/>
+    <div className='Content'>
+      <div className='Builder'>
+        <PDBuilder onInputChange={handleChange} handleSectionClear={() => handleClear('personalDetails')}/>
+        <EEBuilder onInputChange={handleChange} handleSectionClear={() => handleClear('educationDetails')}/>
+        <PEBuilder onInputChange={handleChange} handleSectionClear={() => handleClear('professionalDetails')}/>
+        <div className='builderButtons main'>
+            <button>Clear All</button>
+            <button>Download</button>
         </div>
       </div>
+      <div className='CV'>
+        <DisplaySection data={data}/>
+      </div>
     </div>
-  )
+  );
 }
 
 export default App

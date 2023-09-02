@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './css/Builder.css'
 import PEInputs from './PEInputs';
 
-function PEBuilder({title}) {
+function PEBuilder() {
   const [experienceCount, setExperienceCount] = useState(1);
 
   function newExperience() {
@@ -11,7 +11,7 @@ function PEBuilder({title}) {
   }
     return (
       <div className='CVBuilder'>
-          <h3>{title}</h3>
+          <h3>Professional Experience</h3>
           {[...Array(experienceCount)].map((_, index) => (
             <PEInputs key={index} />
           ))}
@@ -23,8 +23,8 @@ function PEBuilder({title}) {
     );
   }
 
-PEBuilder.propTypes = {
-    title: PropTypes.string.isRequired,
-};
+// PEBuilder.propTypes = {
+//     title: PropTypes.string.isRequired,
+// };
   
 export default PEBuilder;

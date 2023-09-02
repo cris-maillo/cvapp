@@ -2,35 +2,58 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './css/Builder.css'
 
-function EEBuilder({title, onInputChange}) {
-  const [experienceCount, setExperienceCount] = useState(1);
+function EEBuilder({ onInputChange, handleClear}) {
+  const [experiences, setExperiences] = useState([{ years: '', diploma: '', schoolName: '', schoolLocation: '' }]);
 
   function newExperience() {
-    setExperienceCount(prevCount => prevCount + 1);
+    setExperiences((prevExperiences) => [...prevExperiences, { years: '', diploma: '', schoolName: '', schoolLocation: '' }]);
   }
+
   return (
-    <div className='CVBuilder'>
-        <h3>{title}</h3>
-        {[...Array(experienceCount)].map((_, index) => (
-          <div key={index} className='inputs'>
-                <input placeholder='Years' type='date' onChange={(e) => onInputChange(0, e.target.value)}></input>
-                <input placeholder='Diploma' onChange={(e) => onInputChange(1, e.target.value)}></input>
-                <input placeholder='School Name' onChange={(e) => onInputChange(2, e.target.value)}></input>
-                <input placeholder='School Location' onChange={(e) => onInputChange(3, e.target.value)}></input>
-          </div>
-        ))}
-        <div className='builderButtons'>
-          <button>Clear</button>
-          <button onClick={() => newExperience()}>Add Experience</button>
+    <div className="CVBuilder">
+      <h3>Educational Experience</h3>
+      {experiences.map((experience, experienceIndex) => (
+        <div key={experienceIndex} className="inputs">
+          <input
+            id={`years-${experienceIndex}`}
+            placeholder="Years"
+            // type="date"
+            value={experience.years}
+            onChange={(e) => onInputChange(experienceIndex, 'years', e.target.value)}
+          ></input>
+          <input
+            id={`diploma-${experienceIndex}`}
+            placeholder="Diploma"
+            value={experience.diploma}
+            onChange={(e) => onInputChange(experienceIndex, 'diploma', e.target.value)}
+          ></input>
+          <input
+            id={`schoolName-${experienceIndex}`}
+            placeholder="School Name"
+            value={experience.schoolName}
+            onChange={(e) => onInputChange(experienceIndex, 'schoolName', e.target.value)}
+          ></input>
+          <input
+            id={`schoolLocation-${experienceIndex}`}
+            placeholder="School Location"
+            value={experience.schoolLocation}
+            onChange={(e) => onInputChange(experienceIndex, 'schoolLocation', e.target.value)}
+          ></input>
         </div>
+      ))}
+
+      <div className="builderButtons">
+        <button onClick={() => handleClear()}>Clear</button>
+        <button onClick={() => newExperience()}>Add Experience</button>
+      </div>
     </div>
-  );
-}
+  )}
 
 EEBuilder.propTypes = {
-  title: PropTypes.string.isRequired,
-  onInputChange: PropTypes.func
+  onInputChange: PropTypes.func,
+  handleClear: PropTypes.func,
 };
-  
+
 export default EEBuilder;
+
 
